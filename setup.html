@@ -114,6 +114,10 @@
     <button class="start-btn" id="start-btn">Start Quiz <i class="fas fa-arrow-right"></i></button>
   </div>
   <script>
+    // Redirect to home page on refresh (if not coming from index.html)
+    if (performance.navigation.type === 1) {
+      window.location.href = 'index.html';
+    }
     document.getElementById('start-btn').onclick = function() {
       const category = document.getElementById('category').value;
       const difficulty = document.getElementById('difficulty').value;
