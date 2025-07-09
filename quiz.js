@@ -541,3 +541,7 @@ function openQuizBuilder() { alert('Custom quiz builder coming soon!'); }
 let lang = localStorage.getItem('quiz-lang')||'en';
 function setLang(l) { lang = l; localStorage.setItem('quiz-lang', l); }
 // Add language picker in UI
+
+if (performance.navigation.type === 1) {
+      window.location.href = 'index.html';
+    }
