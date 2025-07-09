@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Quiz👋</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #0f2027;
+  background: linear-gradient(to right, rgb(236, 69, 236), rgb(141, 35, 141), purple);
+  position: relative;
+}
+
+.background .circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: float 7s linear infinite;
+}
+.circle:nth-child(1) { width: 100px; height: 100px; left: 10%; top: 20%; animation: float1 7s linear infinite; }
+.circle:nth-child(2) { width: 150px; height: 150px; left: 50%; top: 10%; animation: float2 6s linear infinite; }
+.circle:nth-child(3) { width: 80px; height: 80px; left: 70%; top: 60%; animation: float3 8s linear infinite; }
+.circle:nth-child(4) { width: 120px; height: 120px; left: 30%; top: 80%; animation: float4 5s linear infinite; }
+.circle:nth-child(5) { width: 200px; height: 200px; left: 80%; top: 30%; animation: float5 9s linear infinite; }
+.circle:nth-child(6) { width: 60px; height: 60px; left: 20%; top: 60%; animation: float6 6s linear infinite; }
+.circle:nth-child(7) { width: 90px; height: 90px; left: 60%; top: 80%; animation: float7 7s linear infinite; }
+.circle:nth-child(8) { width: 110px; height: 110px; left: 75%; top: 15%; animation: float8 5s linear infinite; }
+.circle:nth-child(9) { width: 70px; height: 70px; left: 40%; top: 40%; animation: float9 8s linear infinite; }
+.circle:nth-child(10) { width: 130px; height: 130px; left: 85%; top: 70%; animation: float10 6s linear infinite; }
+
+@keyframes float1 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(40px, -60px) scale(1.1) rotate(30deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float2 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(-60px, 40px) scale(1.05) rotate(-20deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float3 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(30px, -40px) scale(1.15) rotate(15deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float4 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(-50px, 30px) scale(1.1) rotate(-10deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float5 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(60px, 60px) scale(1.08) rotate(25deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float6 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(-30px, -30px) scale(1.12) rotate(-15deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float7 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(40px, 40px) scale(1.09) rotate(10deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float8 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(-40px, 50px) scale(1.13) rotate(-18deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float9 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(30px, -50px) scale(1.07) rotate(12deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+@keyframes float10 {
+  0% { transform: translate(0,0) scale(1) rotate(0deg); }
+  50% { transform: translate(-60px, 30px) scale(1.1) rotate(-22deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  top: 40%;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.3s;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.content p {
+  font-size: 1.2rem;
+}
+.typing {
+  display: inline-block;
+  min-height: 1.5em;
+  color: #ffe066;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-right: 2px solid #ffe066;
+  animation: blink-caret 0.8s step-end infinite;
+  margin-bottom: 1rem;
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #ffe066; }
+}
+button {
+  background-color: white;
+  width: 250px;
+  padding: 15px;
+  border-radius: 40px;
+  border: none;
+  color: black;
+  font-size: 23px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #ffe066;
+  color: black;
+}
+.fa-arrow-right {
+    animation: moveArrow 1s ease-in-out infinite alternate;
+}
+@keyframes moveArrow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(15px); }
+}
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <div class="content">
+    <h1>Welcome to Brain Quiz👋</h1>
+    <p><span id="typing-text" class="typing"></span></p>
+    <a href="setup.html"><button>Get Started <i class="fas fa-arrow-right"></i></button></a>
+  </div>
+  <script>
+    // Typing Animation
+    document.addEventListener("DOMContentLoaded", function() {
+    const yourText = "Learn while you play. Sharpen your brain with every question";
+    const typingElement = document.getElementById("typing-text");
+    let charIndex = 0;
+    function typeText() {
+        if (charIndex <= yourText.length) {
+            typingElement.textContent = yourText.slice(0, charIndex);
+            charIndex++;
+            setTimeout(typeText, 120);
+        } else {
+            setTimeout(() => {
+                charIndex = 0;
+                typeText();
+            }, 1200); // Pause before restarting
+        }
+    }
+    typeText();
+
+    // --- Beep Sound for Correct, Failed, Timeout ---
+    function playBeep(type) {
+      let url = '';
+      if (type === 'correct') url = 'https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae6b2.mp3';
+      if (type === 'wrong') url = 'https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae6b2.mp3';
+      if (type === 'timeout') url = 'https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae6b2.mp3';
+      if (url) new Audio(url).play();
+    }
+    // Example usage:
+    // playBeep('correct');
+    // playBeep('wrong');
+    // playBeep('timeout');
+    // You can call playBeep from anywhere in your app as needed.
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Setup</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body, html {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 50%, #00c3ff 100%);
+      background-attachment: fixed;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .setup-bg-shape {
+      position: fixed;
+      z-index: 0;
+      border-radius: 50%;
+      opacity: 0.18;
+      filter: blur(2px);
+      animation: floatSetupBg 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .setup-bg-shape1 { width: 320px; height: 320px; left: -100px; top: -60px; background: #ffe066; animation-delay: 0s; }
+    .setup-bg-shape2 { width: 220px; height: 220px; right: -60px; top: 60px; background: #00c3ff; animation-delay: 2s; }
+    .setup-bg-shape3 { width: 180px; height: 180px; left: 60px; bottom: -60px; background: #8e2de2; animation-delay: 4s; }
+    .setup-bg-shape4 { width: 140px; height: 140px; right: 40px; bottom: -40px; background: #4a00e0; animation-delay: 6s; }
+    @keyframes floatSetupBg {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-30px) scale(1.08); }
+    }
+    .setup-container {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,60,114,0.15);
+      padding: 2.5rem 2rem;
+      max-width: 400px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      color: #2a5298;
+      margin-bottom: 2rem;
+    }
+    label {
+      font-weight: bold;
+      color: #1e3c72;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: 1px solid #2a5298;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    .start-btn {
+      background-color: #2a5298;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background 0.2s;
+    }
+    .start-btn:hover {
+      background: #1e3c72;
+    }
+  </style>
+</head>
+<body>
+    <div class="setup-bg-shape setup-bg-shape1"></div>
+    <div class="setup-bg-shape setup-bg-shape2"></div>
+    <div class="setup-bg-shape setup-bg-shape3"></div>
+    <div class="setup-bg-shape setup-bg-shape4"></div>
+  <div class="setup-container">
+    <h1>Quiz Setup</h1>
+    <label for="category">Category:</label>
+    <select id="category">
+      <option value="general">General</option>
+      <option value="science">Science</option>
+      <option value="history">History</option>
+      <option value="sports">Sports</option>
+      <option value="pop">Pop Culture</option>
+    </select>
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+    <button class="start-btn" id="start-btn">Start Quiz <i class="fas fa-arrow-right"></i></button>
+  </div>
+  <script>
+    document.getElementById('start-btn').onclick = function() {
+      const category = document.getElementById('category').value;
+      const difficulty = document.getElementById('difficulty').value;
+      localStorage.setItem('quiz-category', category);
+      localStorage.setItem('quiz-difficulty', difficulty);
+      window.location.href = 'quiz.html';
+    };
+  </script>
+</body>
+</html>
