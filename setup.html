@@ -81,6 +81,13 @@
     .start-btn:hover {
       background: #1e3c72;
     }
+    .fa-arrow-right {
+    animation: moveArrow 1s ease-in-out infinite alternate;
+}
+@keyframes moveArrow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(15px); }
+}
   </style>
 </head>
 <body>
